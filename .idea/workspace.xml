@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bc65b310-e564-4c8b-9a34-967179747e25" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1g2vH9oiVF0DUcbqxnyRqWaLAcm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\TndWss\clients" />
+      <recent name="D:\workspace\TndWss\server" />
+      <recent name="D:\workspace\TndWss\private" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.example_td_wss">
+    <configuration name="example_td_wss" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TndWss" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/example_td_wss.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="secure_wss_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TndWss" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/clients" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/clients/secure_wss_client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="secure_wss_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TndWss" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/secure_wss_server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tnd_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TndWss" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/clients" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/clients/tnd_client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wss_local_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TndWss" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/clients" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/clients/wss_local_client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.example_td_wss" />
+        <item itemvalue="Python.tnd_client" />
+        <item itemvalue="Python.wss_local_client" />
+        <item itemvalue="Python.secure_wss_server" />
+        <item itemvalue="Python.secure_wss_client" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bc65b310-e564-4c8b-9a34-967179747e25" name="Default Changelist" comment="" />
+      <created>1597325411700</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597325411700</updated>
+      <workItem from="1597325412942" duration="1175000" />
+      <workItem from="1597326632106" duration="2749000" />
+      <workItem from="1597364600057" duration="5469000" />
+      <workItem from="1597482647392" duration="39455000" />
+      <workItem from="1598012437029" duration="15728000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="413" y="89" key="#Deployment" timestamp="1598012510782">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="413" y="89" key="#Deployment/0.0.1536.824@0.0.1536.824" timestamp="1598012510782" />
+    <state x="600" y="185" key="FileChooserDialogImpl" timestamp="1597392788064">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="600" y="185" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597392788064" />
+    <state width="671" height="220" key="GridCell.Tab.0.bottom" timestamp="1598175256190">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="671" height="220" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598175256190" />
+    <state width="671" height="220" key="GridCell.Tab.0.center" timestamp="1598175256190">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="671" height="220" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598175256190" />
+    <state width="671" height="220" key="GridCell.Tab.0.left" timestamp="1598175256190">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="671" height="220" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598175256190" />
+    <state width="671" height="220" key="GridCell.Tab.0.right" timestamp="1598175256190">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="671" height="220" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598175256190" />
+    <state width="671" height="292" key="GridCell.Tab.1.bottom" timestamp="1598175106684">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="671" height="292" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598175106684" />
+    <state width="671" height="292" key="GridCell.Tab.1.center" timestamp="1598175106684">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="671" height="292" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1598175106684" />
+    <state width="671" height="292" key="GridCell.Tab.1.left" timestamp="1598175106683">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="671" height="292" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1598175106683" />
+    <state width="671" height="292" key="GridCell.Tab.1.right" timestamp="1598175106684">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="671" height="292" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1598175106684" />
+    <state x="322" y="72" key="SettingsEditor" timestamp="1598172958365">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="322" y="72" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1598172958365" />
+    <state x="479" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1597364599935">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="479" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1597364599935" />
+    <state x="562" y="160" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration" timestamp="1597326428695">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="562" y="160" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1536.824@0.0.1536.824" timestamp="1597326428695" />
+    <state x="711" y="160" key="ftp.server.browser" timestamp="1598009214317">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="711" y="160" key="ftp.server.browser/0.0.1536.824@0.0.1536.824" timestamp="1598009214317" />
+    <state x="461" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1597744239065">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="461" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597744239065" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server/secure_wss_server.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server/example_td_wss.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TndWss$example_td_wss.coverage" NAME="example_td_wss Coverage Results" MODIFIED="1598175220547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/TndWss$secure_wss_server.coverage" NAME="secure_wss_server Coverage Results" MODIFIED="1597742804492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/TndWss$tnd_client.coverage" NAME="tnd_client Coverage Results" MODIFIED="1598175177339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clients" />
+    <SUITE FILE_PATH="coverage/TndWss$wss_local_client.coverage" NAME="wss_local_client Coverage Results" MODIFIED="1598174880595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clients" />
+    <SUITE FILE_PATH="coverage/TndWss$secure_wss_client.coverage" NAME="secure_wss_client Coverage Results" MODIFIED="1597742799270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clients" />
+    <SUITE FILE_PATH="coverage/TndWss$tnd_server.coverage" NAME="tnd_server Coverage Results" MODIFIED="1597483444041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
