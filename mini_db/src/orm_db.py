@@ -129,136 +129,6 @@ class storageDomainDO(Base):
     gmtModify = Column('gmt_modify', DATETIME, default=func.now())
 
 
-class AzoneDO(Base):
-    __tablename__ = 'azone'
-
-    azId = Column('az_id', Integer, primary_key=True)
-    azoneId = Column('azone_id', String)
-    network_type = Column('network_type', Integer)
-    description = Column('description', String)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModify = Column('gmt_modify', DATETIME, default=func.now())
-
-
-class RiverMstDO(Base):
-    __tablename__ = 'river_master'
-
-    id = Column('master_id', Integer, primary_key=True)
-    name = Column('name', String)
-    addr = Column('addr', String)
-    ip = Column('ip', String)
-    port = Column('port', Integer)
-    azonId = Column('az_id', Integer)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModify = Column('gmt_modify', DATETIME, default=func.now())
-
-
-class oceanResourceDO(Base):
-    __tablename__ = 'ocean_resource'
-
-    id = Column('id', Integer, primary_key=True)
-    type = Column('type', String)
-    name = Column('name', String)
-    value = Column('value', String)
-    description = Column('description', String)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModify = Column('gmt_modified', DATETIME, default=func.now())
-
-
-class deviceDO(Base):
-    __tablename__ = 'device'
-
-    id = Column('id', Integer, primary_key=True)
-    deviceKey = Column('device_key', String)
-    clusterId = Column('cluster_id', Integer)
-    deviceId = Column('device_id', Integer)
-    deviceSize = Column('device_size', Integer)
-    panguPath = Column('pangu_path', Integer)
-    partitionName = Column('partition_name', String)
-    appId = Column('app_id', String)
-    status = Column('status', Integer)
-    feature = Column('feature', Integer)
-    srcSnapshotId = Column('src_snapshot_id', String)
-    progress = Column('progress', Integer)
-    userData = Column('user_data', Integer)
-    iotypeValue = Column('iotype_value', Integer)
-    migrationDisable = Column('migration_disable', Integer)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModify = Column('gmt_modify', DATETIME, default=func.now())
-
-
-class oceanVolumeDO(Base):
-    __tablename__ = 'ocean_volume'
-
-    id = Column('id', Integer, primary_key=True)
-    volumeRiverId = Column('volume_river_id', String)
-    volumeUuid = Column('volume_uuid', String)
-
-
-class snapshotStorageDO(Base):
-    __tablename__ = 'snapshot_storage'
-
-    ssStorageId = Column('ss_storage_id', Integer, primary_key=True)
-    storageType = Column('storage_type', Integer)
-    snapshotType = Column('snapshot_type', Integer)
-    accessId = Column('access_id', String)
-    accessKey = Column('access_key', String)
-    ossDomain = Column('oss_domain', String)
-    ocmAddr = Column('ocm_addr', String)
-    vipServer = Column('vip_server', String)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModify = Column('gmt_modify', DATETIME, default=func.now())
-
-
-class snapshotDO(Base):
-    __tablename__ = 'snapshot'
-
-    id = Column('id', Integer, primary_key=True)
-    deviceKey = Column('device_key', String)
-    snapshotId = Column('snapshot_id', String)
-    ssStorageId = Column('ss_storage_id', Integer)
-    homeClusterId = Column('home_cluster_id', Integer)
-    status = Column('status', Integer)
-    progress = Column('progress', Integer)
-    userData = Column('user_data', Integer)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModify = Column('gmt_modify', DATETIME, default=func.now())
-
-
-class oceanSnapshotDO(Base):
-    __tablename__ = 'ocean_snapshot'
-
-    id = Column('id', Integer, primary_key=True)
-    snapshotRiverId = Column('snapshot_river_id', Integer)
-    snapshotUuid = Column('snapshot_uuid', String)
-    volumeId = Column('volume_id', String)
-
-#########################################################################
-
-
-# geo logic appendix
-class OceanReplicationTask(Base):
-    __tablename__ = 'ocean_replication_task'
-
-    id = Column('id', Integer, primary_key=True)
-    appId = Column('app_id', Integer)
-    taskId = Column('task_id', String)
-    taskType = Column('task_type', String)
-    isReplace = Column('is_replace', Integer)
-    isMigration = Column('is_migration', Integer)
-    srcVolumeKey = Column('src_volume_key', String)
-    srcIoType = Column('src_io_type', String)
-    srcAzone = Column('src_azone', String)
-    srcCluster = Column('src_cluster', String)
-    targetVolumekey = Column('target_volume_key', String)
-    targetIoType = Column('target_io_type', String)
-    targetAzone = Column('target_azone', String)
-    targetCluster = Column('target_cluster', String)
-    task_status = Column('task_status', String)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModified = Column('gmt_modified', DATETIME, default=func.now())
-
-
 def init_db(username='apsara', password='apsara', url='100.81.252.31:3306/riverdb'):
     sql_url = 'mysql+mysqlconnector://{}:{}@{}'.format(username, password, url)
     init_engine = create_engine(sql_url)
@@ -375,36 +245,12 @@ def get_db_conf(ioType=None):
         if not clusterInfo:
             raise AssertionError("cluster info get failed with cluster name {}".format(name_cluster))
         ssStorageId = clusterInfo.ssStorageId
-        oss_domain_info = queryOne(snapshotStorageDO, snapshotStorageDO.ssStorageId == ssStorageId)
-    if oss_domain_info is None:
-        oss_domain = str(Config.get_global_conf('oss_snapshot_domain'))
-    else:
-        oss_domain = oss_domain_info.ossDomain
+
 
     # query azone info with iotype and cluster
     cs_rm_id = clusterInfo.masterId
-    river_info = queryOne(RiverMstDO, RiverMstDO.id == cs_rm_id)
-    rm_az_id = river_info.azonId
-    # print "rm_az_id:", rm_az_id, "river_info:", river_info
-    azoneInfo = queryOne(AzoneDO, AzoneDO.azId == rm_az_id)
-    azone_Name = azoneInfo.azoneId
 
-    # query ocean resource
-    db_ocean_region_name = queryOne(oceanResourceDO, oceanResourceDO.name == "ocean_region_name")
-    db_ocean_domain_name = queryOne(oceanResourceDO, oceanResourceDO.name == "ocean_domain_name")
-    if not db_ocean_region_name:
-        ocean_region_name = Config.get_global_conf('ocean_region_name')
-    else:
-        ocean_region_name = db_ocean_region_name.value
-    if not db_ocean_domain_name:
-        ocean_domain_name = Config.get_global_conf('ocean_domain_name')
-    else:
-        ocean_domain_name = db_ocean_domain_name.value
-    db_info = {"name_cluster": name_cluster, "oss_domain": oss_domain, "_azone_name": azone_Name,
-            "ocean_region_name": ocean_region_name, "ocean_domain_name": ocean_domain_name}
-    g_logger.info("db_info about io_type %s: %s" % (ioType, db_info))
-    return {"name_cluster": name_cluster, "oss_domain": oss_domain, "_azone_name": azone_Name,
-            "ocean_region_name": ocean_region_name, "ocean_domain_name": ocean_domain_name}
+    return {"name_cluster": name_cluster}
 
 
 def get_hmac_key(app=None):
@@ -434,10 +280,6 @@ if __name__ == '__main__':
     print("domain_info:{}".format(domain_info))
     app_pub_key = get_hmac_key(app="sigma_admin")
     g_logger.info('app_pub_key: %s' % app_pub_key)
-    all_dev_info = queryAll(deviceDO, deviceDO.deviceKey.like("{}%".format("25597-")))
-    print("dev info num {}".format(len(all_dev_info)))
-    ret = delete(deviceDO, deviceDO.deviceKey == "25597-12319123")
-    print("del dev {}".format(ret))
     # get_io_info = get_db_conf(ioType=io_type)
     # print "get_io_info:%s" % get_io_info
     # db_vo_info = queryOne(oceanVolumeDO, oceanVolumeDO.id == '17915696402958336')
