@@ -16,33 +16,28 @@ import logging as g_logger
 sys.path.append('.')
 
 def check_env_sys():
-    ocean_host, io_type, db_host, db_name, db_user, ocean_app, debug = '', '', '', '', '', '', ''
+    server_host, io_type, db_host, db_name, db_user, _app, debug = '', '', '', '', '', '', ''
     if len(sys.argv) < 7:
-        print("usage: %s [ocean_host] [io3|io8|io12] [db_host] [db_name] [db_user/db_passwd] [ocean_app] [case_level] [debug]" % \
+        print("usage: %s [server_host] [i3|i8|i12] [db_host] [db_name] [db_user/db_passwd] [server_app] [case_level] [debug]" % \
               sys.argv[0])
         # sys.exit(0)
         return [False]
     if len(sys.argv) == 8:
         debug = sys.argv[5]
-        ocean_host = sys.argv[1]
+        server_host = sys.argv[1]
         io_type = sys.argv[2]
         db_host = sys.argv[3]
         db_name = sys.argv[4]
         db_user = sys.argv[5]
-        ocean_app = sys.argv[6]
+        _app = sys.argv[6]
         case_level = sys.argv[7]
-        # print "get config: %s, %s, %s, %s, %s, %s, %s" % (ocean_host, io_type, db_host, db_name, db_user, ocean_app, case_level)
 
-        if not ocean_host:
-            print ("Not need adjust environment %s" % ocean_host)
+        if not server_host:
+            print ("Not need adjust environment %s" % server_host)
             return [False]
         else:
-            #if check_ip(ocean_host)[0] != 'True' or check_ip(db_host)[0] != 'True':
-            #    return [False]
-            #else:
-            #    assert check_ip(db_host)[0] == 'True'
             pass
-        return [True, ocean_host, io_type, db_host, db_name, db_user, ocean_app, case_level]
+        return [True, server_host, io_type, db_host, db_name, db_user,  _app, case_level]
 '''
 # README
 # init DBSession by get sys argvs, if not input, get from conf/global.conf
@@ -70,7 +65,7 @@ DBSession = sessionmaker(bind=engine)
 
 
 class ApiDO(Base):
-    __tablename__ = 'ocean_api'
+    __tablename__ = '_api'
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
@@ -81,7 +76,7 @@ class ApiDO(Base):
 
 
 class AppDO(Base):
-    __tablename__ = 'ocean_app'
+    __tablename__ = '_app'
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
@@ -94,7 +89,7 @@ class AppDO(Base):
 
 
 class AppApiDO(Base):
-    __tablename__ = 'ocean_app_api'
+    __tablename__ = '_app_api'
 
     id = Column(Integer, primary_key=True)
     appId = Column('app_id', Integer)
@@ -103,33 +98,7 @@ class AppApiDO(Base):
     gmtModify = Column('gmt_modified', DATETIME, default=func.now())
 
 
-class ClusterDO(Base):
-    __tablename__ = 'cluster_info'
-
-    id = Column('cluster_id', Integer, primary_key=True)
-    name = Column('name', String)
-    masterId = Column('master_id', Integer)
-    saleable = Column('saleable', Integer)
-    useRatioMax = Column('use_ratio', Integer)
-    saleRatioMax = Column('sale_ratio', Integer)
-    storageDomainId = Column('storage_domain_id', Integer)
-    iotypeValue = Column('iotype_value', Integer)
-    schedulePolicy = Column('sched_policy', Integer)
-    ssStorageId = Column('ss_storage_id', Integer)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModify = Column('gmt_modify', DATETIME, default=func.now())
-
-
-class storageDomainDO(Base):
-    __tablename__ = 'storage_domain'
-
-    id = Column(Integer, primary_key=True)
-    name = Column('name', String)
-    gmtCreate = Column('gmt_create', DATETIME, default=func.now())
-    gmtModify = Column('gmt_modify', DATETIME, default=func.now())
-
-
-def init_db(username='apsara', password='apsara', url='100.81.252.31:3306/riverdb'):
+def init_db(username='apsara', password='apsara', url='127.0.0.1:3306/rb'):
     sql_url = 'mysql+mysqlconnector://{}:{}@{}'.format(username, password, url)
     init_engine = create_engine(sql_url)
     return sessionmaker(bind=init_engine)()
@@ -231,26 +200,7 @@ def get_db_conf(ioType=None):
     if ioType is None:
         return None
     g_logger.info("query db info about ioType %s" % ioType)
-    # query cluster, snapshot storage, azone
-    # clusterInfo = queryOne(ClusterDO, ClusterDO.iotypeValue == 2 ** int(str(ioType)[2:]))
-    clusterInfo = queryAll(ClusterDO, ClusterDO.iotypeValue == 2 ** int(str(ioType)[2:]))
-    if not clusterInfo:
-        raise AssertionError("ioType {} not exist at db".format(ioType))
-    else:
-        if len(clusterInfo) >= 2:
-            name_cluster = Config.get_global_conf('cluster_name')
-        else:
-            name_cluster = clusterInfo[0].name
-        clusterInfo = queryOne(ClusterDO, ClusterDO.name == name_cluster)
-        if not clusterInfo:
-            raise AssertionError("cluster info get failed with cluster name {}".format(name_cluster))
-        ssStorageId = clusterInfo.ssStorageId
 
-
-    # query azone info with iotype and cluster
-    cs_rm_id = clusterInfo.masterId
-
-    return {"name_cluster": name_cluster}
 
 
 def get_hmac_key(app=None):
@@ -269,18 +219,6 @@ def get_hmac_key(app=None):
 
 if __name__ == '__main__':
     g_logger.info('api: %d' % len(queryAll(ApiDO)))
-    g_logger.info('app: %d' % len(queryAll(AppDO)))
-    g_logger.info('appApi: %d' % len(queryAll(AppApiDO)))
-    g_logger.info('cluster: %d' % len(queryAll(ClusterDO)))
-    cluster_info = queryOne(ClusterDO, ClusterDO.name == 'pangu2-ebs-test2')
 
-    if cluster_info:
-        g_logger.info('cluster info: {},{}'.format(cluster_info.name, cluster_info.schedulePolicy))
-    domain_info = queryOne(storageDomainDO, storageDomainDO.name == "PUBLIC")
-    print("domain_info:{}".format(domain_info))
     app_pub_key = get_hmac_key(app="sigma_admin")
     g_logger.info('app_pub_key: %s' % app_pub_key)
-    # get_io_info = get_db_conf(ioType=io_type)
-    # print "get_io_info:%s" % get_io_info
-    # db_vo_info = queryOne(oceanVolumeDO, oceanVolumeDO.id == '17915696402958336')
-    # g_logger.info('oceanVolumeDO info: {}'.format(db_vo_info.volumeKey))
