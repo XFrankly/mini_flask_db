@@ -28,9 +28,13 @@ def configure_binder(binder):
 
 class data_base_module(Module):
     """配置注册器 和 提供者"""
+    # def __init__(self, configuration):
+    #     self.conf = configuration
     @provider
     # @singleton
     def provide_sqlite_connection(self, configuration:configuration)->sqlite3.Connection:
+        # if not configuration:
+        #     configuration = self.conf
         conn = sqlite3.connect(configuration.connection_string)
         cursor = conn.cursor()
         cursor.execute(sql_create)
@@ -46,7 +50,7 @@ def main():
     db_obj2 = data_base_module()
     print(f"sing:{db_obj is db_obj2}, db_obj2:{db_obj2}, dir1:{dir(db_obj) }, \n dir2:{dir(db_obj2)} \n {db_obj2.__dict__ == db_obj.__dict__}")
     # print(f"{db_obj2.provide_sqlite_connection() is db_obj.provide_sqlite_connection()}")
-    injec = Injector([configure_binder, db_obj])
+    injec = Injector([configure_binder, db_obj])  # configure_binder,
     handler = injec.get(RequestHandler)
     print(f'handler:{handler}')
     tp = tuple(map(str, handler.get()[0]))
